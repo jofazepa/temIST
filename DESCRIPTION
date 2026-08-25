@@ -1,0 +1,19 @@
+Package: temIST
+Type: Package
+Title: Institutional Theme for 'ggplot2'
+Version: 0.1.0
+Authors@R: person("O teu nome", "Sobrenome", email = "email@ist.pt", role = c("aut", "cre"))
+Description: Provides an institutional ggplot2 theme with a categorical
+    palette derived from the main brand colours and a sequential scale
+    based on the primary blue. Uses the 'Source Sans 3' font.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+    ggplot2 (>= 3.5.0),
+    scales,
+    showtext,
+    sysfonts
+Suggests:
+    knitr,
+    rmarkdown
+Config/roxygen2/version: 8.1.0
