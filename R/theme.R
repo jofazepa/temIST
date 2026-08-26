@@ -11,11 +11,56 @@ ist_font_path <- function() {
               package = "temIST", mustWork = FALSE)
 }
 
+#' Definir cores padrão para geoms e escalas
+#'
+#' Atualiza os defaults dos geoms mais comuns para usar as cores
+#' institucionais. Chamada automaticamente por tem_ist().
+#'
+#' @keywords internal
+ist_set_geom_defaults <- function() {
+  
+  blue  <- "#009DE0"
+  grey  <- "#46555F"
+  light <- "#D2D3D4"
+  
+  # Geoms com fill
+  ggplot2::update_geom_defaults("bar",       list(fill = blue))
+  ggplot2::update_geom_defaults("col",       list(fill = blue))
+  ggplot2::update_geom_defaults("histogram", list(fill = blue))
+  ggplot2::update_geom_defaults("area",      list(fill = blue))
+  ggplot2::update_geom_defaults("ribbon",    list(fill = light))
+  
+  # Geoms com colour
+  ggplot2::update_geom_defaults("point",     list(colour = blue))
+  ggplot2::update_geom_defaults("line",      list(colour = blue))
+  ggplot2::update_geom_defaults("smooth",   list(colour = blue, fill = light))
+  ggplot2::update_geom_defaults("path",     list(colour = blue))
+  ggplot2::update_geom_defaults("step",     list(colour = blue))
+  ggplot2::update_geom_defaults("text",     list(colour = grey))
+  
+  # Geoms mistos
+  ggplot2::update_geom_defaults("density",   list(fill = blue, colour = blue, alpha = 0.5))
+  ggplot2::update_geom_defaults("boxplot",   list(fill = light, colour = grey))
+  ggplot2::update_geom_defaults("violin",    list(fill = light, colour = grey))
+  ggplot2::update_geom_defaults("crossbar",  list(fill = light, colour = grey))
+  ggplot2::update_geom_defaults("errorbar",  list(colour = grey))
+  ggplot2::update_geom_defaults("linerange", list(colour = grey))
+  ggplot2::update_geom_defaults("pointrange",list(colour = grey))
+  
+  # Escalas discretas por omissão (ggplot2 >= 3.3.0)
+  options(
+    ggplot2.discrete.colour = function() scale_colour_ist(),
+    ggplot2.discrete.fill   = function() scale_fill_ist()
+  )
+  
+  invisible(NULL)
+}
+
 #' Tema institucional para ggplot2
 #'
 #' Aplica a fonte Source Sans 3 (embutida no pacote), título e subtítulo
-#' alinhados à esquerda, e um estilo limpo consistente com a identidade
-#' visual da instituição.
+#' alinhados à esquerda, cores padrão nos geoms e escalas discretas
+#' automáticas com a paleta institucional.
 #'
 #' @param base_size Tamanho base da fonte (default 12).
 #' @param base_family Família tipográfica (default "Source Sans 3").
@@ -32,6 +77,9 @@ ist_font_path <- function() {
 #'   tem_ist()
 tem_ist <- function(base_size = 12, base_family = "Source Sans 3",
                     load_font = TRUE) {
+  
+  # Aplicar cores padrão aos geoms e escalas
+  ist_set_geom_defaults()
   
   if (load_font) {
     font_file <- ist_font_path()
