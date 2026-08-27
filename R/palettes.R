@@ -35,18 +35,18 @@ IST_LIGHT <- "#D2D3D4"
 #' ist_categorical()
 ist_categorical <- function() {
   c(
-    "#009DE0",
-    "#46555F",
-    "#D2D3D4",
-    "#F28E2B",
-    "#3AA94C",
-    "#CC79A7",
-    "#8C7DB8",
-    "#6BC5D9",
-    "#2E6E8E",
-    "#E8B84B",
-    "#7A9E9F",
-    "#B85C38"
+    "#5F4690",
+    "#1D6996",
+    "#35AD7B",
+    "#ACC25A",
+    "#EFB118",
+    "#F17E5B",
+    "#CE3F51",
+    "#9C536A",
+    "#6F1923",
+    "#33302E",
+    "#66CCEE",
+    "#AA3377"
   )
 }
 
