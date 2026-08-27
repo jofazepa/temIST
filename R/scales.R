@@ -66,24 +66,35 @@ scale_fill_ist_seq <- function(...) {
 #' \dontrun{
 #' ggplot(dados, aes(x = grupo, y = valor, colour = genero)) +
 #'   geom_point() +
-#'   scale_colour_genero()
+#'   scale_colour_ist_sex()
 #' }
 #' @export
 scale_colour_ist_sex <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "colour",
     scale_name = "ist_sexo",
-    palette    = function(n) ist_gender(n),
+    palette    = function(n) ist_sexo(n),
     ...
   )
 }
 
-# Alias para fill (caso use fill em vez de colour)
+
+#' Escala discreta otimizada para variáveis binárias de género.
+#'
+#' @param ... Argumentos passados para \code{\link[ggplot2]{discrete_scale}}.
+#' @seealso \code{\link[ggplot2]{discrete_scale}}
+#' @examples
+#' \dontrun{
+#' ggplot(dados, aes(x = grupo, y = valor, fill = genero)) +
+#'   geom_col() +
+#'   scale_fill_ist_sex()
+#' }
+#' @export
 scale_fill_ist_sex <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
     scale_name = "ist_sexo",
-    palette    = function(n) ist_gender(n),
+    palette    = function(n) ist_sexo(n),
     ...
   )
 }

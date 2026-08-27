@@ -33,11 +33,12 @@ IST_LIGHT <- "#D2D3D4"
 #'
 #' @examples
 #' ist_sexo()
-ist_sexo <- function() {
-  c(
-    "#117733",
-    "#882255"
+ist_sexo <- function(n = 2L) {
+  pal <- c(
+    "#117733",  # Verde-floresta
+    "#882255"   # Bordeaux
   )
+  pal[seq_len(min(n, length(pal)))]
 }
 
 #' Paleta categorial (12 cores)
