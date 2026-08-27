@@ -69,20 +69,20 @@ scale_fill_ist_seq <- function(...) {
 #'   scale_colour_genero()
 #' }
 #' @export
-scale_colour_genero <- function(...) {
+scale_colour_sex <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "ist_genero",
+    scale_name = "ist_sexo",
     palette    = function(n) ist_gender(n),
     ...
   )
 }
 
 # Alias para fill (caso use fill em vez de colour)
-scale_fill_genero <- function(...) {
+scale_fill_sex <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "ist_genero",
+    scale_name = "ist_sexo",
     palette    = function(n) ist_gender(n),
     ...
   )
