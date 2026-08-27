@@ -25,6 +25,21 @@ IST_BLUE  <- "#009DE0"
 IST_GREY  <- "#46555F"
 IST_LIGHT <- "#D2D3D4"
 
+#' Paleta categorial (2 cores)
+#'
+#'
+#' @return Vector de 2 caracteres hexadecimais.
+#' @export
+#'
+#' @examples
+#' ist_sexo()
+ist_sexo <- function() {
+  c(
+    "#117733",
+    "#882255"
+  )
+}
+
 #' Paleta categorial (12 cores)
 #'
 #'
